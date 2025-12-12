@@ -8,7 +8,7 @@ Aplicación full-stack para el registro de personas y gestión de áreas de trab
 ┌──────────────────┐    HTTP/REST     ┌────────────────────┐
 │    Frontend      │ ◄──────────────► │     Backend        │
 │  Angular 20.3    │   Port 4200      │   Go 1.22 + Gin    │
-│  + Chart.js      │                  │   + GORM + Consul  │
+│  + Chart.js      │                  │   + GORM           │
 └──────────────────┘                  └─────────┬──────────┘
                                            Port 3000
                                                 │
@@ -379,7 +379,6 @@ ORDER BY a.id;
 │   │   ├── model/                 # Modelos de dominio
 │   │   │   ├── area.go
 │   │   │   └── persona.go
-│   │   └── consul/                # Cliente Consul (opcional)
 │   ├── scripts/
 │   │   └── init_db.sql            # Script SQL con datos iniciales
 │   ├── Dockerfile
@@ -491,7 +490,6 @@ Definidas en `docker-compose.yml`:
 - **ORM:** GORM v2 (PostgreSQL driver)
 - **Base de Datos:** PostgreSQL 15
 - **Testing:** Go testing con mocks personalizados
-- **Service Discovery:** Consul (opcional)
 
 ### Frontend
 - **Framework:** Angular 20.3 (standalone components)

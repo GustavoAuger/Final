@@ -41,28 +41,39 @@ Aplicación full-stack para el registro de personas y gestión de áreas de trab
 
 ### Prerrequisitos
 - Docker y Docker Compose
-- Node.js 18+ y npm (para frontend)
-- Go 1.22+ (opcional, para desarrollo local)
+- Node.js 18+ y npm (solo para desarrollo local)
+- Go 1.22+ (solo para desarrollo local)
 
-### 1. Levantar Backend y Base de Datos
+### Levantar Stack Completo (Recomendado)
 
 ```bash
 # Desde la raíz del proyecto
 docker compose up --build
 ```
 
-✅ Backend disponible en: **http://localhost:3000**  
-✅ Base de datos con 6 áreas y 30 personas de prueba
+Esto levantará:
+- ✅ **PostgreSQL** con datos iniciales (6 áreas, 30 personas)
+- ✅ **Backend** en: **http://localhost:3000**
+- ✅ **Frontend** en: **http://localhost:4200**
 
-### 2. Levantar Frontend (en otra terminal)
+### Desarrollo Local (Alternativa)
 
+**Backend:**
+```bash
+# Levantar solo BD
+docker compose up db -d
+
+# Ejecutar backend localmente
+cd backend
+go run cmd/server/main.go
+```
+
+**Frontend:**
 ```bash
 cd frontend
 npm install
 npm start
 ```
-
-✅ Frontend disponible en: **http://localhost:4200**
 
 ## 📡 API Endpoints
 
@@ -230,22 +241,41 @@ GROUP BY a.nombre;
 ### Comandos Útiles
 
 ```bash
-# Levantar servicios
+# Levantar todos los servicios (backend, frontend, DB)
+docker compose up --build
+
+# Levantar en modo detached (background)
 docker compose up -d
 
-# Ver logs
+# Ver logs de todos los servicios
+docker compose logs -f
+
+# Ver logs de un servicio específico
 docker compose logs -f backend
+docker compose logs -f frontend
 docker compose logs -f app_db
 
-# Reconstruir
-docker compose up --build
+# Reconstruir solo un servicio
+docker compose up --build backend
+docker compose up --build frontend
 
 # Detener servicios
 docker compose down
 
 # Limpiar volúmenes (elimina BD)
 docker compose down -v
+
+# Ver estado de los servicios
+docker compose ps
 ```
+
+### Servicios Dockerizados
+
+| Servicio | Puerto Externo | Puerto Interno | URL |
+|----------|----------------|----------------|-----|
+| Frontend | 4200 | 80 | http://localhost:4200 |
+| Backend | 3000 | 3000 | http://localhost:3000 |
+| PostgreSQL | 5432 | 5432 | localhost:5432 |
 
 ### Variables de Entorno
 

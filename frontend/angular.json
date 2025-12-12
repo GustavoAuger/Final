@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "semana3-angular": {
+    "proyecto-final-eureka": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -53,10 +53,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "semana3-angular:build:production"
+              "buildTarget": "proyecto-final-eureka:build:production"
             },
             "development": {
-              "buildTarget": "semana3-angular:build:development"
+              "buildTarget": "proyecto-final-eureka:build:development"
             }
           },
           "defaultConfiguration": "development"

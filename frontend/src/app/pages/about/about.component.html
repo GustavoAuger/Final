@@ -1,0 +1,99 @@
+
+<app-animated-background class="fixed inset-0 -z-10"></app-animated-background>
+<div class="min-h-screen flex flex-col">
+
+  <!-- Hero Section -->
+  <section class="py-20 md:py-32">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+          Sobre <span class="text-indigo-400">Mí</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+          Desarrollador Full Stack apasionado por crear soluciones innovadoras y eficientes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="py-16 bg-gray-900/50 backdrop-blur-sm">
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+<!-- En la sección About Me -->
+<div class="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl border border-indigo-400/30 relative overflow-hidden">
+  <!-- Efectos de fondo -->
+  <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-pink-600/10 animate-pulse"></div>
+  
+  <div class="relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <!-- Contenido de historia -->
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-indigo-300">Mi Historia</h2>
+        <p class="text-gray-200 mb-4 leading-relaxed">
+          Soy Gustavo, un profesional creativo. Combino una sólida base en Ingeniería Civil Mecánica con una formación especializada en TI, donde me titulé como Analista Programador. Impulsado por mi pasión por la tecnología, complementé mis estudios con bootcamps enfocados en prácticas avanzadas y arquitectura, desarrollando una visión integral del ciclo de desarrollo.
+        </p>
+        <p class="text-gray-200 mb-6 leading-relaxed">
+          Con más de un año de experiencia como Desarrollador Frontend, aporto disciplina y una perspectiva de procesos obtenida de mi background en ingeniería. Me destaco por competencias clave como el liderazgo, el trabajo en equipo y una gran flexibilidad, que me permiten integrarme y adaptarme rápidamente a cualquier entorno de trabajo.
+        </p>
+        <p class="text-gray-200 mb-8 leading-relaxed">
+          Busco activamente especializarme en áreas avanzadas del backend y arquitectura, con el objetivo de crecer profesionalmente para liderar equipos o proyectos desde roles de liderazgo técnico.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a (click)="scrollToSkills()" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+            Mis Habilidades
+          </a>
+          <a routerLink="/contacto" class="px-6 py-3 border-2 border-indigo-400 text-indigo-300 hover:bg-indigo-900/30 rounded-lg font-semibold transition-all duration-300">
+            Contáctame
+          </a>
+        </div>
+      </div>
+      
+      <!-- Imagen de perfil -->
+      <div class="bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-2xl p-6 border border-indigo-400/20">
+        <div class="aspect-w-1 aspect-h-1 w-full bg-gray-600/30 rounded-xl overflow-hidden shadow-lg">
+          <img src="assets/images/gustavo.png" 
+               alt="Foto de perfil" 
+               class="w-full h-full object-cover rounded-xl">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Elementos decorativos -->
+  <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-xl"></div>
+  <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-purple-500/20 to-transparent rounded-full blur-lg"></div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold text-white mb-4">Mis Habilidades</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl">
+          Tecnologías y herramientas con las que utilizo actualmente
+        </p>
+      </div>
+      
+<!-- En la sección de habilidades -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+  <div *ngFor="let skill of skills" class="bg-gray-800/50 rounded-xl p-6 text-center hover:bg-gray-700/50 transition-colors">
+    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl">
+      {{ skill.icon }}
+    </div>
+    <h3 class="text-lg font-semibold text-white mb-2">{{ skill.name }}</h3>
+    <!-- Barra de progreso -->
+    <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
+      <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full" 
+           [style.width.%]="skill.levelPercentage"></div>
+    </div>
+    <!-- Porcentaje numérico debajo -->
+    <span class="text-sm text-gray-300">{{ skill.levelPercentage }}%</span>
+  </div>
+</div>
+    </div>
+  </section>
+</div>

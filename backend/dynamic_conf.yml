@@ -1,0 +1,37 @@
+# Configuración dinámica de Traefik
+http:
+  # Configuración de middlewares
+  middlewares:
+    # Middleware CORS para todos los servicios
+    cors-headers:
+      headers:
+        accessControlAllowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+        accessControlAllowHeaders: ["*"]
+        accessControlAllowOrigin: ["*"]
+        accessControlMaxAge: 100
+        addVaryHeader: true
+
+    # Middleware para autenticación del dashboard
+    admin-auth:
+      basicAuth:
+        users:
+          - "admin:$$2y$$05$$X6x5Yz5J5n5Z5Y5Z5Y5Z5O5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e"
+
+  # Configuración de servicios
+  services:
+    # Servicio para el dashboard
+    dashboard:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8080"
+
+  # Configuración de rutas
+  routers:
+    # Dashboard de Traefik
+    dashboard:
+      rule: "Host(`traefik.localhost`)"
+      service: api@internal
+      entryPoints: ["traefik"]
+      middlewares:
+        - "admin-auth"
+        - "cors-headers"

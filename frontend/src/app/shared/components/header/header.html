@@ -1,0 +1,109 @@
+<header class="fixed w-full z-50 transition-all duration-300" [ngClass]="{'bg-gray-900/80 backdrop-blur-sm shadow-lg': isScrolled}">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a routerLink="/" class="flex items-center">
+          <span class="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-600 bg-clip-text text-transparent">
+            GustavoCode
+          </span>
+        </a>
+      </div>
+
+      <!-- Menú de navegación -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a routerLink="/" class="text-gray-300 hover:text-white transition-colors">Inicio</a>
+        <a routerLink="/aplicacion" class="text-gray-300 hover:text-white transition-colors">Aplicación</a>
+        <a routerLink="/acerca" class="text-gray-300 hover:text-white transition-colors">Acerca de</a>
+        <!--<a routerLink="/contacto" class="text-gray-300 hover:text-white transition-colors">Contacto</a>-->
+      </nav>
+
+      <!-- Menú de usuario -->
+      <div class="flex items-center space-x-4">
+        <ng-container *ngIf="authService.isAuthenticated(); else loginButton">
+          <div class="hidden md:flex items-center space-x-4">
+            <span class="text-gray-300">Hola, {{ authService.getUserName() }}</span>
+            <button (click)="logout()" 
+                  class="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-rose-500 to-pink-500/80 hover:from-rose-600 hover:to-pink-600/90 rounded-lg transition-all duration-200 cursor-pointer">
+            <span class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Cerrar sesión
+            </span>
+            </button>
+          </div>
+        </ng-container>
+        
+        <ng-template #loginButton>
+          <a routerLink="/login" 
+             class="hidden md:block px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md transition-colors">
+            Iniciar sesión
+          </a>
+        </ng-template>
+
+        <!-- Botón móvil -->
+        <button (click)="toggleMobileMenu()" 
+                class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path *ngIf="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            <path *ngIf="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div class="md:hidden bg-gray-900/95 backdrop-blur-sm" *ngIf="mobileMenuOpen">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a routerLink="/" 
+         class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">
+        Inicio
+      </a>
+      <a routerLink="/aplicacion" 
+         class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">
+        Aplicación
+      </a>
+      <a routerLink="/acerca" 
+         class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">
+        Acerca de
+      </a>
+        <!--<a routerLink="/contacto" 
+         class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">
+        Contacto
+      </a>-->
+
+      <ng-container *ngIf="authService.isAuthenticated()">
+        <div class="pt-4 border-t border-gray-800">
+          <div class="flex items-center px-3 py-2">
+            <div class="text-sm text-gray-400">Conectado como</div>
+            <div class="ml-3">
+              <div class="text-base font-medium text-white">{{ authService.getUserName() }}</div>
+            </div>
+          </div>
+          <div class="mt-3">
+            <button (click)="logout()" 
+                    class="w-full flex items-center px-3 py-2 rounded-md text-base font-medium text-red-400 hover:bg-gray-800">
+              <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!authService.isAuthenticated()">
+        <div class="pt-4 border-t border-gray-800">
+          <a routerLink="/login" 
+             class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+            Iniciar sesión
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</header>
+
+<!-- Espacio para el contenido debajo del header fijo -->
+<div class="h-20"></div>

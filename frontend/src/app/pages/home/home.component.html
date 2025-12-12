@@ -1,0 +1,101 @@
+<div class="relative min-h-screen flex flex-col">
+  <app-animated-background class="fixed inset-0 -z-10"></app-animated-background>
+  
+  <!-- Hero Section -->
+  <main class="flex-grow flex items-center pt-20 relative z-10">
+    <div class="container mx-auto px-6 py-16 md:py-24">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+          Programa Eureka <span class="text-indigo-400">Futuro digital</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+          Proyecto realizado a lo largo del programa Eureka. Esta plataforma tiene por objetivo aplicar y mostrar las skills adquiridas.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a routerLink="/aplicacion" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors">
+            Comenzar ahora
+          </a>
+          <a href="#features" class="px-8 py-3 border border-indigo-400 text-indigo-300 hover:bg-indigo-900/30 rounded-lg font-medium transition-colors">
+            Saber más
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 bg-gray-900/50 backdrop-blur-sm relative z-10">
+    <div class="container mx-auto px-6">
+     
+      
+      <!-- Componente Roadmap -->
+      <app-roadmap 
+        [currentWeek]="1" 
+        [sprintDetails]="sprintData">
+      </app-roadmap>
+
+      <h2 class="text-3xl font-bold text-center mb-12 text-white mt-20">Características Principales</h2>
+<div class="grid md:grid-cols-4 gap-8">
+  <!-- Card 1: Uso de Guard en la App -->
+  <div class="p-8 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-md rounded-2xl border border-indigo-400/30 text-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-pink-600/10 animate-pulse"></div>
+    <div class="relative z-10">
+      <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold mb-2 text-indigo-300">Uso de Guard en la App</h3>
+      <p class="text-gray-200">Implementación de AuthGuard para proteger rutas y simular autenticación segura.</p>
+    </div>
+    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-xl"></div>
+  </div>
+  
+  <!-- Card 2: Uso de Local Storage -->
+  <div class="p-8 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-md rounded-2xl border border-indigo-400/30 text-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-pink-600/10 animate-pulse"></div>
+    <div class="relative z-10">
+      <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold mb-2 text-indigo-300">Uso de Local Storage</h3>
+      <p class="text-gray-200">Persistencia de datos del usuario y estado de la aplicación usando localStorage.</p>
+    </div>
+    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-xl"></div>
+  </div>
+  
+  <!-- Card 3: Integración con Backend -->
+  <div class="p-8 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-md rounded-2xl border border-indigo-400/30 text-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-pink-600/10 animate-pulse"></div>
+    <div class="relative z-10">
+      <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold mb-2 text-indigo-300">Integración con Backend</h3>
+      <p class="text-gray-200">Conexión con servidores Go mediante servicios HTTP y endpoints RESTful.</p>
+    </div>
+    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-xl"></div>
+  </div>
+  
+  <!-- Card 4: Uso de Señales de Angular -->
+  <div class="p-8 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-md rounded-2xl border border-indigo-400/30 text-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-pink-600/10 animate-pulse"></div>
+    <div class="relative z-10">
+      <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a4 4 0 004-4V5z"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold mb-2 text-indigo-300">Uso de Señales de Angular</h3>
+      <p class="text-gray-200">Manejo reactivo de estado con signals para componentes dinámicos y observables RxJS.</p>
+    </div>
+    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-full blur-xl"></div>
+  </div>
+</div>
+    </div>
+  </section>
+</div>

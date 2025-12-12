@@ -1,0 +1,74 @@
+.animated-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.15;
+    }
+
+    .shape-1 {
+      width: 600px;
+      height: 600px;
+      background: #ff5e62;
+      top: -100px;
+      left: -100px;
+    }
+
+    .shape-2 {
+      width: 800px;
+      height: 800px;
+      background: #ff9966;
+      bottom: -200px;
+      right: -200px;
+    }
+
+    .shape-3 {
+      width: 400px;
+      height: 400px;
+      background: #00dbde;
+      top: 50%;
+      left: 30%;
+    }
+
+    .shape-4 {
+      width: 500px;
+      height: 500px;
+      background: #a8ff78;
+      top: 70%;
+      left: 70%;
+    }
+
+    .shape-5 {
+      width: 700px;
+      height: 700px;
+      background: #f4d03f;
+      top: 20%;
+      right: 20%;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      50% {
+        transform: translate(20px, 20px) rotate(180deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+
+    .animate-float {
+      animation: float 20s ease-in-out infinite;
+    }
+  

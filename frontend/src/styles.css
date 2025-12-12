@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #1a1a2e;
+  --secondary: #16213e;
+  --accent: #0f3460;
+  --highlight: #e94560;
+  --text: #f1f1f1;
+  --text-secondary: #b8b8b8;
+}
+
+/* Estilos base */
+body {
+  @apply bg-gray-900 text-gray-100 min-h-screen;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Estilos para los botones */
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 ease-in-out;
+}
+
+.btn-primary {
+  @apply bg-indigo-600 hover:bg-indigo-700 text-white;
+}
+
+.btn-outline {
+  @apply border border-indigo-600 text-indigo-400 hover:bg-indigo-900/50;
+}
+
+/* Estilos para el scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-indigo-500;
+}
+
+/* Animaciones */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-breathe {
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

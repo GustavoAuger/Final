@@ -1,0 +1,15 @@
+
+services:
+  semana3-angular:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: semana3-angular
+    ports:
+      - "4200:8088"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
